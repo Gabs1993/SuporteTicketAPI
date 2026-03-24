@@ -1,0 +1,81 @@
+# .NET build artifacts
+/bin/
+/obj/
+/packages/
+*.user
+*.userprefs
+*.suo
+*.cache
+*.pidb
+*.log
+*.vs/
+*.vscode/
+
+# Visual Studio
+.vs/
+.vscode/
+*.sln.docstates
+*.ntvs*
+*.ncrunchproject
+*._ncrunch*
+*.dbmdl
+*.dbproj.schema*
+*.publishsettings
+orleans.codegen.cs
+
+# NuGet packages
+/packages/
+*.nupkg
+*.snupkg
+
+# Test results
+/TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Entity Framework
+/Migrations/*.Designer.cs
+/*.dbmdl
+
+# ASP.NET Core
+appsettings.Development.json
+wwwroot/dist/
+wwwroot/lib/
+
+# Node.js (if using JavaScript/TypeScript)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Docker
+.dockerignore
+*.dockerignore
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.ide
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio cache files
+.vs/
+*.vcxproj.user
+*.vcxproj.filters
+
+# JetBrains Rider
+.idea/
+*.sln.iml
