@@ -41,6 +41,13 @@ namespace SuporteTicketApiWeb.Controllers
             return CreatedAtAction(nameof(GetById), new { id = ticket.Id }, ticket);
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateTicketDto dto)
+        {
+            await _service.UpdateAsync(id, dto);
+            return NoContent();
+        }
+
         [HttpPut("{id}/status")]
         public async Task<IActionResult> UpdateStatus(Guid id)
         {
