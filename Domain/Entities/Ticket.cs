@@ -36,6 +36,9 @@ namespace Domain.Entities
 
         public void MarkAsDone()
         {
+            if (Status != TicketStatus.InProgress)
+                throw new Exception("Só pode concluir um ticket em andamento");
+
             Status = TicketStatus.Done;
         }
 

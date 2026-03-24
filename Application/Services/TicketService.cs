@@ -89,5 +89,17 @@ namespace Application.Services
 
             await _repository.UpdateAsync(ticket);
         }
+
+        public async Task MarkAsInProgressAsync(Guid id)
+        {
+            var ticket = await _repository.GetByIdAsync(id);
+
+            if (ticket == null)
+                throw new Exception("Ticket não encontrado");
+
+            ticket.MarkAsInProgress();
+
+            await _repository.UpdateAsync(ticket);
+        }
     }
 }

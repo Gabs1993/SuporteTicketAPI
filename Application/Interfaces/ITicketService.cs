@@ -15,5 +15,6 @@ namespace Application.Interfaces
         Task UpdateStatusAsync(Guid id);
         Task UpdateAsync(Guid id, UpdateTicketDto dto);
         Task DeleteAsync(Guid id);
+        Task MarkAsInProgressAsync(Guid id);
     }
 }
