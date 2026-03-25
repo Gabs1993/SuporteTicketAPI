@@ -1,4 +1,5 @@
 ﻿using Application.DTOs;
+using Application.Exceptions;
 using Application.Interfaces;
 using Application.Mappins;
 using Domain.Entities;
@@ -46,7 +47,7 @@ namespace Application.Services
         public async Task<TicketDto> CreateAsync(CreateTicketDto dto)
         {
             if (string.IsNullOrWhiteSpace(dto.Titulo))
-                throw new Exception("Título é obrigatório");
+                throw new BadRequestException("Título é obrigatório");
 
             var ticket = new Ticket(dto.Titulo, dto.Descricao);
 
@@ -60,7 +61,7 @@ namespace Application.Services
             var ticket = await _repository.GetByIdAsync(id);
 
             if (ticket == null)
-                throw new Exception("Ticket não encontrado");
+                throw new NotFoundException("Ticket não encontrado");
 
             ticket.MarkAsDone();
 
@@ -72,7 +73,7 @@ namespace Application.Services
             var ticket = await _repository.GetByIdAsync(id);
 
             if (ticket == null)
-                throw new Exception("Ticket não encontrado");
+                throw new NotFoundException("Ticket não encontrado");
 
             await _repository.DeleteAsync(id);
         }
@@ -82,22 +83,10 @@ namespace Application.Services
             var ticket = await _repository.GetByIdAsync(id);
 
             if (ticket == null)
-                throw new Exception("Ticket não encontrado");
+                throw new NotFoundException("Ticket não encontrado");
 
             ticket.Titulo = dto.Titulo;
             ticket.Descricao = dto.Descricao;
-
-            await _repository.UpdateAsync(ticket);
-        }
-
-        public async Task MarkAsInProgressAsync(Guid id)
-        {
-            var ticket = await _repository.GetByIdAsync(id);
-
-            if (ticket == null)
-                throw new Exception("Ticket não encontrado");
-
-            ticket.MarkAsInProgress();
 
             await _repository.UpdateAsync(ticket);
         }

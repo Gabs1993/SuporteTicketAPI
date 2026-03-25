@@ -28,20 +28,10 @@ namespace Domain.Entities
             DataCriada = DateTime.UtcNow;
         }
 
-        public void MarkAsInProgress()
-        {
-            if (Status == TicketStatus.Open)
-                Status = TicketStatus.InProgress;
-        }
-
         public void MarkAsDone()
         {
-            if (Status != TicketStatus.InProgress)
-                throw new Exception("Só pode concluir um ticket em andamento");
-
             Status = TicketStatus.Done;
         }
-
 
     }
 }

@@ -4,6 +4,7 @@ using Domain.Interfaces;
 using Infra.Data.Context;
 using Infra.Data.Repository;
 using Microsoft.EntityFrameworkCore;
+using SuporteTicketApiWeb.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +37,7 @@ var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseAuthorization();
 

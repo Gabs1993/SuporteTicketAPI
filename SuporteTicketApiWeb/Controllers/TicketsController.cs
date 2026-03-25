@@ -55,20 +55,6 @@ namespace SuporteTicketApiWeb.Controllers
             return NoContent();
         }
 
-        [HttpPut("{id}/in-progress")]
-        public async Task<IActionResult> MarkAsInProgress(Guid id)
-        {
-            try
-            {
-                await _service.MarkAsInProgressAsync(id);
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
