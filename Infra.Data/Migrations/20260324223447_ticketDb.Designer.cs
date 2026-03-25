@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260324153319_ticketDb")]
+    [Migration("20260324223447_ticketDb")]
     partial class ticketDb
     {
         /// <inheritdoc />
