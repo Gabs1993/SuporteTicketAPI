@@ -1,11 +1,12 @@
 ﻿Support Ticket API
-Visão Geral
+
+📌Visão Geral
 
 Esta aplicação foi desenvolvida como parte de um desafio técnico com o objetivo de implementar um sistema simples de gerenciamento de chamados (tickets) de suporte interno.
 
 A solução permite que usuários criem, visualizem, atualizem e removam tickets, enquanto a equipe de suporte pode acompanhar o status de cada solicitação.
 
-Arquitetura
+🧱 Arquitetura
 
 O projeto foi estruturado seguindo princípios de separação de responsabilidades, inspirado em Clean Architecture, dividido em camadas:
 
@@ -16,7 +17,7 @@ API (SupportTicketApiWeb) → Camada de apresentação (Controllers)
 
 Essa abordagem facilita manutenção, testes e evolução do sistema.
 
-Tecnologias Utilizadas
+🛠️ Tecnologias Utilizadas
 .NET 8
 Entity Framework Core
 SQL Server
@@ -33,6 +34,8 @@ xUnit + Moq + FluentAssertions
 ✅ Deletar ticket
 ✅ Tratamento global de erros
 ✅ Testes unitários para regras de negócio
+
+
 📊 Paginação
 
 A listagem de tickets suporta paginação para melhor performance e controle de dados:
@@ -48,7 +51,7 @@ Resposta:
   "pageSize": 10
 }
 
-Regras de Negócio
+🔄 Regras de Negócio
 
 O fluxo de status dos tickets foi modelado da seguinte forma:
 
@@ -63,7 +66,7 @@ Além disso:
 Não é possível concluir um ticket já finalizado
 Transições inválidas são protegidas na entidade
 
-Tratamento de Erros
+🛡️Tratamento de Erros
 
 A aplicação utiliza um middleware global de exceções, garantindo respostas padronizadas:
 
@@ -72,7 +75,8 @@ A aplicação utiliza um middleware global de exceções, garantindo respostas p
   "statusCode": 404
 }
 
-Como Executar com Docker
+🐳 Como Executar com Docker
+
 Pré-requisitos
 Docker instalado
 Passos
@@ -82,14 +86,15 @@ A aplicação estará disponível em:
 
 👉 http://localhost:5000/swagger
 
-Execução Local
+💻Execução Local
+
 Backend
 dotnet run
 Banco de dados (LocalDB)
 
 Certifique-se de que o SQL Server LocalDB está disponível.
 
-Testes
+🧪Testes
 
 Para executar os testes:
 
@@ -101,7 +106,7 @@ Regras de negócio da entidade Ticket
 Comportamento do serviço
 
 
-Decisões Técnicas
+📌 Decisões Técnicas
 Arquitetura em camadas para organização e escalabilidade
 Uso de DTOs para desacoplamento entre camadas
 Paginação para melhorar performance
