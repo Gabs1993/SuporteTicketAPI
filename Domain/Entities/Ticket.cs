@@ -30,6 +30,9 @@ namespace Domain.Entities
 
         public void MarkAsDone()
         {
+            if (Status == TicketStatus.Done)
+                throw new Exception("Ticket já está concluído");
+
             Status = TicketStatus.Done;
         }
 

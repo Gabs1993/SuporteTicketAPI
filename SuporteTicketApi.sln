@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuporteTicketApiTests", "SuporteTicketApiTests\SuporteTicketApiTests.csproj", "{F30E70C5-0D8B-4E47-B169-6F59E2AAE88D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{A2F0BF3B-69E0-4408-B3E1-B6BCB8E7CCBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2F0BF3B-69E0-4408-B3E1-B6BCB8E7CCBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2F0BF3B-69E0-4408-B3E1-B6BCB8E7CCBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F30E70C5-0D8B-4E47-B169-6F59E2AAE88D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F30E70C5-0D8B-4E47-B169-6F59E2AAE88D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F30E70C5-0D8B-4E47-B169-6F59E2AAE88D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F30E70C5-0D8B-4E47-B169-6F59E2AAE88D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
