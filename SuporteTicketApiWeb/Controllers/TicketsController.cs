@@ -1,5 +1,6 @@
 ﻿using Application.DTOs;
 using Application.Interfaces;
+using Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SuporteTicketApiWeb.Controllers
@@ -44,14 +45,17 @@ namespace SuporteTicketApiWeb.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateTicketDto dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             await _service.UpdateAsync(id, dto);
             return NoContent();
         }
 
         [HttpPut("{id}/status")]
-        public async Task<IActionResult> UpdateStatus(Guid id)
+        public async Task<IActionResult> UpdateStatus(Guid id, [FromBody] UpdateStatusDto dto)
         {
-            await _service.UpdateStatusAsync(id);
+            await _service.UpdateStatusAsync(id, dto.Status);
             return NoContent();
         }
 

@@ -56,14 +56,16 @@ namespace Application.Services
             return TicketMapping.ToDto(ticket);
         }
 
-        public async Task UpdateStatusAsync(Guid id)
+        public async Task UpdateStatusAsync(Guid id, int status)
         {
             var ticket = await _repository.GetByIdAsync(id);
 
             if (ticket == null)
                 throw new NotFoundException("Ticket não encontrado");
 
-            ticket.MarkAsDone();
+            var newStatus = (TicketStatus)status;
+
+            ticket.UpdateStatus(newStatus);
 
             await _repository.UpdateAsync(ticket);
         }
@@ -80,13 +82,16 @@ namespace Application.Services
 
         public async Task UpdateAsync(Guid id, UpdateTicketDto dto)
         {
+            if (dto == null)
+                throw new ArgumentNullException(nameof(dto));
+
+            if (string.IsNullOrWhiteSpace(dto.Titulo))
+                throw new ArgumentException("O título é obrigatório.");
+
             var ticket = await _repository.GetByIdAsync(id);
 
             if (ticket == null)
-                throw new NotFoundException("Ticket não encontrado");
-
-            ticket.Titulo = dto.Titulo;
-            ticket.Descricao = dto.Descricao;
+                throw new KeyNotFoundException("Ticket não encontrado.");
 
             await _repository.UpdateAsync(ticket);
         }

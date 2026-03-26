@@ -36,5 +36,17 @@ namespace Domain.Entities
             Status = TicketStatus.Done;
         }
 
+        public void UpdateStatus(TicketStatus newStatus)
+        {
+            if (Status == TicketStatus.Done)
+                throw new Exception("Ticket já está concluído");
+
+            
+            if (newStatus < Status)
+                throw new Exception("Não é permitido voltar o status");
+
+            Status = newStatus;
+        }
+
     }
 }

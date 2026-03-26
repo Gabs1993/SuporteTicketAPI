@@ -12,7 +12,7 @@ namespace Application.Interfaces
         Task<PagedResultDto<TicketDto>> GetAllAsync(int page, int pageSize);
         Task<TicketDto?> GetByIdAsync(Guid id);
         Task<TicketDto> CreateAsync(CreateTicketDto dto);
-        Task UpdateStatusAsync(Guid id);
+        Task UpdateStatusAsync(Guid id, int status);
         Task UpdateAsync(Guid id, UpdateTicketDto dto);
         Task DeleteAsync(Guid id);
         
